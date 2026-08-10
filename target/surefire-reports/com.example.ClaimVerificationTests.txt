@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: com.example.ClaimVerificationTests
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.476 s <<< FAILURE! -- in com.example.ClaimVerificationTests
+com.example.ClaimVerificationTests.scenario29_filterRejectingSharedShrinkTargetNoLongerCrashesOnEdgeCase -- Time elapsed: 0.017 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected the filter().flatMap() chain to run cleanly now that Generator.flatMap() correctly short-circuits on a non-VALID upstream draw ==> Unexpected exception thrown: io.github.nikhilvirdi.jhusk.GeneratorCrashException: Generator crashed during data generation (edge-case fillByte=0x00)
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:53)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:40)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3187)
+	at com.example.ClaimVerificationTests.scenario29_filterRejectingSharedShrinkTargetNoLongerCrashesOnEdgeCase(ClaimVerificationTests.java:227)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+Caused by: io.github.nikhilvirdi.jhusk.GeneratorCrashException: Generator crashed during data generation (edge-case fillByte=0x00)
+	at io.github.nikhilvirdi.jhusk.Property.check(Property.java:425)
+	at io.github.nikhilvirdi.jhusk.Property.check(Property.java:311)
+	at com.example.ClaimVerificationTests.lambda$scenario29_filterRejectingSharedShrinkTargetNoLongerCrashesOnEdgeCase$4(ClaimVerificationTests.java:229)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:49)
+	... 6 more
+Caused by: java.lang.NullPointerException: Cannot load from int array because "dims" is null
+	at com.example.ClaimVerificationTests.lambda$scenario29_filterRejectingSharedShrinkTargetNoLongerCrashesOnEdgeCase$2(ClaimVerificationTests.java:222)
+	at io.github.nikhilvirdi.jhusk.Generator.lambda$flatMap$0(Generator.java:166)
+	at io.github.nikhilvirdi.jhusk.Property.check(Property.java:416)
+	... 9 more
+
